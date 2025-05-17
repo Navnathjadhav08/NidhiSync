@@ -1,0 +1,120 @@
+<div class="container">
+    <button class="back-button" (click)="goBack()">← Back to Dashboard</button>
+    
+    <h2>Generate New Bill</h2>
+  
+    <!-- Customer Details -->
+    <form [formGroup]="customerForm" class="customer-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Customer Name *</label>
+          <input type="text" formControlName="name" required>
+        </div>
+        <div class="form-group">
+          <label>Mobile Number *</label>
+          <input type="tel" formControlName="mobile">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea formControlName="address"></textarea>
+        </div>
+      </div>
+    </form>
+  
+    <!-- Product Search -->
+    <div class="product-search">
+      <div class="search-header">
+        <div class="search-toggle">
+          <button [class.active]="searchType === 'id'" (click)="searchType = 'id'">ID</button>
+          <button [class.active]="searchType === 'barcode'" (click)="searchType = 'barcode'">Barcode</button>
+          <button [class.active]="searchType === 'name'" (click)="searchType = 'name'">Name</button>
+        </div>
+        <input type="text" 
+               [placeholder]="'Search by ' + searchType" 
+               (input)="handleSearchInput($event)"
+               [disabled]="isLoading">
+      </div>
+  
+      <!-- Search Results -->
+      <div class="search-results">
+        <div *ngIf="isLoading" class="loading">Loading products...</div>
+        <div *ngIf="!isLoading && filteredProducts.length === 0" class="no-results">
+          No products found matching "{{searchQuery}}"
+        </div>
+        <div class="product-item" 
+             *ngFor="let product of filteredProducts" 
+             (click)="addToCart(product)">
+          <div class="product-info">
+            <span class="name">{{product.name}}</span>
+            <span class="price">₹{{product.price}}</span>
+          </div>
+          <div class="product-meta">
+            <span class="barcode">Barcode: {{product.barcode}}</span>
+            <span class="stock">Stock: {{product.quantity}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Selected Products Table -->
+    <table class="selected-products">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of selectedProducts; let i = index">
+          <td>{{item.product.name}}</td>
+          <td>₹{{item.product.price}}</td>
+          <td>
+            <button class="qty-btn" (click)="adjustQuantity(item, -1)">-</button>
+            {{item.quantity}}
+            <button class="qty-btn" (click)="adjustQuantity(item, 1)">+</button>
+          </td>
+          <td>₹{{item.total}}</td>
+          <td>
+            <button class="remove-btn" (click)="removeItem(i)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="total-label">Grand Total</td>
+          <td colspan="2" class="total-amount">₹{{totalAmount}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  
+    <!-- Payment Details -->
+    <div class="payment-details">
+      <div class="form-group">
+        <label>Payment Mode *</label>
+        <select formControlName="paymentMode">
+          <option *ngFor="let mode of paymentModes" [value]="mode">{{mode}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Payment Status *</label>
+        <select formControlName="paymentStatus">
+          <option *ngFor="let status of paymentStatuses" [value]="status">{{status}}</option>
+        </select>
+      </div>
+    </div>
+  
+    <button class="generate-btn" 
+            (click)="generateBill()" 
+            [disabled]="customerForm.invalid || selectedProducts.length === 0">
+      Generate Bill
+    </button>
+  </div>

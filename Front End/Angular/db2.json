@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "scno": "SC001",
+      "fullName": "John Doe",
+      "address": "123 Main St",
+      "phone": "9876543210",
+      "email": "johndoe@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "scno": "SC002",
+      "fullName": "Jane Smith",
+      "address": "456 Market St",
+      "phone": "9876501234",
+      "email": "janesmith@example.com",
+      "password": "securepass"
+    },
+    {
+      "id": null,
+      "scno": "123",
+      "fullName": "navbharti",
+      "address": "cnd",
+      "phone": "78999999999",
+      "email": "nj@fsbh.df",
+      "password": "47544"
+    },
+    {
+      "id": null,
+      "scno": "dfg",
+      "fullName": "dfgdfsdgf",
+      "address": "ddfg",
+      "phone": "56545432",
+      "email": "dnmd@knfvd.dfg",
+      "password": "74"
+    }
+  ]
+}

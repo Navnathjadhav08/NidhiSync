@@ -1,0 +1,19 @@
+<div class="register-container">
+    <div class="left-panel">
+      <!-- <img src="assets/logo.svg" alt="Logo" class="logo"> -->
+      <h1>Welcome to NidhiSync</h1>
+      <img src="assets/pos-terminal.svg" alt="POS" class="demo-img">
+      <p class="tagline">Create professional, elegant invoices and receipts in minutes.</p>
+    </div>
+    <div class="right-panel">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <h2>Create your account</h2>
+        <input name="username" ngModel required placeholder="User name*">
+        <input name="mobile"   ngModel required placeholder="Mobile number*">
+        <input name="email"    ngModel required placeholder="Email*" type="email">
+        <input name="password" ngModel required placeholder="Password*" type="password">
+        <button type="submit" [disabled]="!form.valid">Create account</button>
+      </form>
+    </div>
+  </div>
+  

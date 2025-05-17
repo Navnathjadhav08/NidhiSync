@@ -1,0 +1,45 @@
+<div class="pricing-container">
+    <h1>Simple, transparent pricing</h1>
+    <p>No contracts, no surprise fees</p>
+  
+    <!-- Toggle Monthly / Yearly -->
+    <div class="toggle">
+      <button 
+        [class.active]="billingCycle === 'monthly'"
+        (click)="setCycle('monthly')">
+        Monthly
+      </button>
+      <button
+        [class.active]="billingCycle === 'yearly'"
+        (click)="setCycle('yearly')">
+        Yearly
+      </button>
+    </div>
+  
+    <!-- Plan cards -->
+    <div class="plans">
+      <div 
+        class="plan" 
+        *ngFor="let plan of plans"
+        [class.featured]="plan.id === 'pro'"
+        [class.selected]="plan.id === selectedPlanId">
+        
+        <h2>{{ plan.name }}</h2>
+        
+        <!-- Display price based on cycle -->
+        <p>
+          <span>
+            {{ billingCycle === 'monthly' 
+               ? plan.priceMonthly 
+               : plan.priceYearly }}
+          </span>
+          /{{ billingCycle }}
+        </p>
+        
+        <button (click)="choosePlan(plan.id)">
+          {{ plan.id === selectedPlanId ? 'Selected' : 'Choose plan' }}
+        </button>
+      </div>
+    </div>
+  </div>
+  

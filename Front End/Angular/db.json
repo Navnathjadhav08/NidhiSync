@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "barcode": "1234567890128",
+      "name": "Whole Wheat Bread",
+      "description": "Organic whole wheat sandwich bread",
+      "price": 40.5,
+      "quantity": 80,
+      "expDate": "2024-07-15"
+    },
+    {
+      "id": "3",
+      "barcode": "9876543210983",
+      "name": "Organic Eggs (12pk)",
+      "description": "Free-range organic large eggs",
+      "price": 57.99,
+      "quantity": 120,
+      "expDate": "2024-06-25"
+    },
+    {
+      "id": "4",
+      "barcode": "4567890123452",
+      "name": "Himalayan Pink Salt",
+      "description": "Fine grain Himalayan salt 500g",
+      "price": 28.99,
+      "quantity": 200,
+      "expDate": "2025-12-31"
+    },
+    {
+      "id": "5",
+      "barcode": "2345678901231",
+      "name": "Extra Virgin Olive Oil",
+      "description": "Cold-pressed olive oil 1 liter",
+      "price": 121.99,
+      "quantity": 65,
+      "expDate": "2024-09-01"
+    },
+    {
+      "id": "6",
+      "barcode": "6789012345675",
+      "name": "Organic Honey",
+      "description": "Pure organic honey 500g",
+      "price": 896.49,
+      "quantity": 90,
+      "expDate": "2024-08-20"
+    },
+    {
+      "id": "7",
+      "barcode": "3456789012349",
+      "name": "Dark Chocolate Bar",
+      "description": "70% cocoa dark chocolate 100g",
+      "price": 35.25,
+      "quantity": 180,
+      "expDate": "2024-10-10"
+    },
+    {
+      "id": "8",
+      "barcode": "8901234567890",
+      "name": "Filter Coffee",
+      "description": "Arabica coffee beans 250g",
+      "price": 789.99,
+      "quantity": 110,
+      "expDate": "2024-11-30"
+    },
+    {
+      "id": "9",
+      "barcode": "5678901234568",
+      "name": "Apple Juice",
+      "description": "100% pure apple juice 1 liter",
+      "price": 82.79,
+      "quantity": 75,
+      "expDate": "2024-08-20"
+    },
+    {
+      "id": "10",
+      "barcode": "9012345678904",
+      "name": "Almond Biscuits",
+      "description": "Gluten-free almond cookies 200g",
+      "price": 14.25,
+      "quantity": 130,
+      "expDate": "2024-07-05"
+    },
+    {
+      "id": 0,
+      "barcode": "11454215452",
+      "name": "kuch bhi",
+      "description": "kuch nahi",
+      "price": 99999999999,
+      "quantity": 0,
+      "expDate": "2046-06-07"
+    },
+    {
+      "id": 0,
+      "barcode": "796301456302",
+      "name": "pen",
+      "description": "stylo",
+      "price": 5,
+      "quantity": 500,
+      "expDate": ""
+    }
+  ]
+}
+

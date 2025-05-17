@@ -1,0 +1,93 @@
+<div class="dashboard">
+    <aside class="sidebar">
+      <div class="logo">🌞 NidhiSync</div>
+      <nav>
+        <ul>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a routerLink="/dashboard">Dashboard</a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a routerLink="/generate-bill">Generate Bill</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/products">Products</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/reports">Reports</a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a routerLink="/manage-user">Manage User</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/profile">Profile</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="logout">Logout</button>
+    </aside>
+  
+    <main class="main-content">
+      <header class="header">
+        <div>
+          <p class="breadcrumb">Pages / Dashboard</p>
+          <h1>Main Dashboard</h1>
+          <p class="branch">Loni Branch</p>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <div class="user-pic">👤</div>
+        </div>
+      </header>
+  
+      <section class="cards">
+        <div class="card"><p>Users</p><h2>45</h2></div>
+        <div class="card"><p>Total Payments</p><h2>Rs. 200,000</h2></div>
+        <div class="card"><p>Active Users</p><h2>22</h2></div>
+      </section>
+  
+      <section class="graph-section">
+        <div class="graph-card">
+            <h3>This Month</h3>
+            <h1>Rs. 200,000</h1>
+            <p>On track of this area</p>
+            <div class="chart-placeholder">
+            <svg width="100%" height="150px">
+                <polyline
+                fill="none"
+                stroke="#5d5dfd"
+                stroke-width="3"
+                points="10,120 50,90 90,100 130,60 170,80 210,40 250,70 290,50 330,90"
+                />
+            </svg>
+            </div>
+        </div>
+        
+        <div class="pie-chart">
+            <h3>Payment Analysis</h3>
+            <div class="chart-placeholder pie">
+              <svg width="100" height="100" viewBox="0 0 32 32">
+                <circle r="16" cx="16" cy="16" fill="#e0e0ff" />
+                <path
+                  d="M16 16 L16 0 A16 16 0 0 1 29.39 24.76 Z"
+                  fill="#5d5dfd"
+                />
+              </svg>
+            </div>
+            <div class="chart-legends">
+                <p>Done: 63%</p>
+                <p>Pending: 25%</p>
+            </div>
+          </div>
+      </section>
+  
+      <section class="recent-payments">
+        <h3>Recent Payments</h3>
+        <div class="payment" *ngFor="let payment of payments">
+          <div class="avatar">🧑‍💼</div>
+          <p>{{ payment.name }}</p>
+          <strong>{{ payment.amount }}</strong>
+          <span>{{ payment.time }}</span>
+        </div>
+      </section>
+    </main>
+</div>

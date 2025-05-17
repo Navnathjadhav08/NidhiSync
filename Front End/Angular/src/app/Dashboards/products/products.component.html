@@ -1,0 +1,43 @@
+<div class="container">
+    <button class="back-button" (click)="goBack()">← Back</button>
+    
+    <div class="header">
+      <h2>Product Management</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products..." [(ngModel)]="searchTerm">
+        <span class="search-icon">🔍</span>
+      </div>
+      <button class="add-button" (click)="openAddDialog()">Add Product</button>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Barcode</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Exp Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts" (click)="openEditDialog(product)">
+          <td>{{ product.id }}</td>
+          <td>{{ product.barcode }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.expDate | date }}</td>
+          <td>
+            <button class="delete-button" (click)="deleteProduct(product.id); $event.stopPropagation()">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

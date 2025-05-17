@@ -1,0 +1,69 @@
+<!-- Add Back to Dashboard Button -->
+<div class="navigation">
+    <button routerLink="/dashboard" class="btn-back">
+      ← Back to Dashboard
+    </button>
+  </div>
+  
+  <div class="card p-4">
+    <div class="header">
+      <h2>Manage Users</h2>
+      <div class="controls">
+        <button (click)="toggleTable()" class="btn-icon">
+          {{ showTable ? '👁️ Hide Users' : '👥 Show Users' }}
+        </button>
+      </div>
+    </div>
+  
+    <!-- Enhanced Form -->
+    <form [formGroup]="userForm" (ngSubmit)="save()" class="user-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="scno">SC Number</label>
+          <input id="scno" formControlName="scno" placeholder="Enter SC number">
+          <div class="error" *ngIf="userForm.get('scno')?.invalid && userForm.get('scno')?.touched">
+            SC Number is required
+          </div>
+        </div>
+  
+        <!-- Repeat similar structure for other fields -->
+        
+        <div class="form-actions">
+          <button type="submit" [disabled]="userForm.invalid" class="btn-save">
+            {{ editing ? '🔄 Update' : '➕ Add' }}
+          </button>
+          <button type="button" (click)="cancelEdit()" class="btn-cancel" *ngIf="editing">
+            ✖ Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  
+    <!-- Enhanced Table -->
+    <div *ngIf="showTable" class="user-table">
+      <table>
+        <thead>
+          <tr>
+            <th>SCNO</th>
+            <th>Full Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of users" (click)="edit(u)" class="user-row">
+            <td>{{ u.scno }}</td>
+            <td>{{ u.fullName }}</td>
+            <td>{{ u.phone }}</td>
+            <td>{{ u.email }}</td>
+            <td class="actions">
+              <button (click)="delete(u); $event.stopPropagation()" class="btn-delete">
+                🗑️ Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

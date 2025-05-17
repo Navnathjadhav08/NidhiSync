@@ -1,0 +1,37 @@
+<div class="biz-container">
+    <h1>Business Information</h1>
+    <form #bizForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="cols">
+        <div class="col">
+          <label>Business name*</label>
+          <input name="name" ngModel required>
+          <label>Email*</label>
+          <input name="email" ngModel required type="email">
+          <label>Street*</label>
+          <input name="street" ngModel required>
+          <label>City*</label>
+          <input name="city" ngModel required>
+          <div class="row">
+            <div>
+              <label>State*</label>
+              <input name="state" ngModel required>
+            </div>
+            <div>
+              <label>Pincode*</label>
+              <input name="pincode" ngModel required>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <label>Business category</label>
+          <input name="category" ngModel>
+          <label>Business type</label>
+          <input name="type" ngModel>
+          <label>Role</label>
+          <input name="role" ngModel>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!bizForm.valid">Save & Continue</button>
+    </form>
+  </div>
+  

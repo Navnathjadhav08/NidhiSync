@@ -1,0 +1,176 @@
+// Color palette
+$primary-blue: #1976d2;
+$dark-blue: #1565c0;
+$light-blue: #e3f2fd;
+$white: #ffffff;
+$light-gray: #f5f5f5;
+$medium-gray: #e0e0e0;
+$dark-gray: #757575;
+$error-red: #d32f2f;
+
+.container {
+  padding: 2rem;
+  background-color: $white;
+  min-height: 100vh;
+
+  .back-button {
+    background: none;
+    border: none;
+    color: $primary-blue;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $light-blue;
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    h2 {
+      color: $primary-blue;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .search-bar {
+      position: relative;
+      flex-grow: 1;
+      max-width: 400px;
+      margin: 0 1rem;
+
+      input {
+        width: 100%;
+        padding: 0.75rem 2.5rem 0.75rem 1rem;
+        border-radius: 4px;
+        border: 1px solid $medium-gray;
+        font-size: 1rem;
+        transition: border 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-blue;
+          box-shadow: 0 0 0 2px rgba($primary-blue, 0.2);
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $dark-gray;
+      }
+    }
+
+    .add-button {
+      background-color: $primary-blue;
+      color: $white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $dark-blue;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    border-radius: 8px;
+    overflow: hidden;
+
+    thead {
+      background-color: $primary-blue;
+      color: $white;
+
+      th {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 500;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $medium-gray;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: $light-blue;
+          cursor: pointer;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 1rem;
+          color: $dark-gray;
+
+          &:first-child {
+            color: $primary-blue;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .delete-button {
+    background-color: $error-red;
+    color: $white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($error-red, 10%);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+  .container {
+    padding: 1rem;
+
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start !important;
+
+    .search-bar {
+      margin: 0.5rem 0 !important;
+      max-width: 100% !important;
+      width: 100%;
+    }
+  }
+}
